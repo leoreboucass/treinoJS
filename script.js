@@ -4,7 +4,7 @@
 
 // Declarar uma variável com o seu nome
 
-var nome = Leo;
+var nome = "Leo";
 
 // Declarar uma variável com a sua idade
 
@@ -274,7 +274,7 @@ var ultimaFruta = frutas[4];
 // atribuindo o novo valor a scroll 
 
 var scroll = 1000;
-scrol += 500
+scroll += 500
 console.log(scroll);
 
 
@@ -325,7 +325,7 @@ for (var numero = 0; numero < 10; numero++) {
   console.log(numero);
 }
 
-const total = 50 * numero;
+const total500 = 50 * numero;
 console.log(total);
 
 //------
@@ -387,12 +387,12 @@ imgs.forEach((item, index) => {
   console.log(item, index);
 });
 
-let i = 0;
+let v = 0;
 imgs.forEach(() => {
-  console.log(i++);
+  console.log(v++);
 });
 
-imgs.forEach(() => i++);
+imgs.forEach(() => v++);
 
 
 
@@ -572,6 +572,59 @@ const animais = document.querySelector('.animais');
 faq.innerHTML = animais
 
 
+//-------
+
+
+// Transforme o objeto abaixo em uma Constructor Function
+//const pessoa = {
+// nome: 'Nome pessoa',
+// idade: 0,
+// andar() {
+//   console.log(this.nome + ' andou');
+//  }
+//}
+
+function pessoa() {
+  this.nome = 'Nome pessoa',
+    this.idade = 0;
+  this.andar = function () {
+    console.log(this.nome + ' andou')
+  }
+}
+
+// Crie 3 pessoas, João - 20 anos,
+// Maria - 25 anos, Bruno - 15 anos
+const Joao = new pessoa('João', 20)
+const Maria = new pessoa('Maria', 25)
+const Bruno = new pessoa('Bruno', 15)
+
+// Crie uma Constructor Function (Dom) para manipulação
+// de listas de elementos do dom. Deve conter as seguintes
+// propriedades e métodos:
+//
+// elements, retorna NodeList com os elementos selecionados
+// addClass(classe), adiciona a classe a todos os elementos
+// removeClass(classe), remove a classe a todos os elementos
+
+
+function Dom(seletor) {
+  const elementList = document.querySelectorAll
+  this.element = elementList
+
+  this.addClass = function (classe) {
+    elementList.forEach((element) => {
+      element.classList.add(classe);
+    })
+  }
+  this.removeClass = function (classe) {
+    this.elementList.forEach((element) => {
+      element.classList.remove(classe)
+    })
+  }
+}
+this.removeClass = function (evento) {
+  evento.classList.remove()
+}
 
 
 
