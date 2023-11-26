@@ -628,3 +628,349 @@ this.removeClass = function (evento) {
 
 
 
+// ---------
+
+
+// Liste 5 objetos nativos
+Object
+String
+Array
+Function
+Number
+
+// Liste 5 objetos do browser
+window
+history
+Document
+HTMLCollection
+NodeList
+
+
+
+//----------
+
+
+// Utilizando o foreach na array abaixo,
+// some os valores de Taxa e os valores de Recebimento
+
+const transacoes = [
+  {
+    descricao: 'Taxa do Pão',
+    valor: 'R$ 39',
+  },
+  {
+    descricao: 'Taxa do Mercado',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 99',
+  },
+  {
+    descricao: 'Taxa do Banco',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 49',
+  },
+];
+
+let taxaTotal = 0;
+let recebimentoTotal = 0;
+transacoes.forEach((item) => {
+  const numeroLimpo = +item.valor.replace('R$ ', '');
+  if (item.descricao.slice(0, 4) === 'Rece') {
+    recebimentoTotal += numeroLimpo;
+  }
+});
+console.log(taxaToal)
+console.log(recebimentoTotal)
+
+
+// Retorne uma array com a lista abaixo
+const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+
+const arrayTransportes = transportes.split(';')
+console.log(arrayTransportes)
+
+// Substitua todos os span's por a's
+let html = `<ul>
+                <li><span>Sobre</span></li>
+                <li><span>Produtos</span></li>
+                <li><span>Contato</span></li>
+              </ul>`;
+
+html = html.split('span').join('a');
+
+console.log(html)
+
+
+// Retorne o último caracter da frase
+const frase2 = 'Melhor do ano!';
+
+console.log(frase[frase.length - 1])
+//ou
+console.log(frase.slice(-1))
+
+// Retorne o total de taxas
+const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
+
+let taxasTotal = 0;
+transacoes2.forEach((item) => {
+  item = item.toLowerCase();
+  item = item.trim();
+  item = item.slice(0, 4);
+
+  if (item === 'taxa')
+    taxasTotal++
+})
+
+console.log(taxasTotal)
+
+
+//----------
+
+
+// Retorne um número aleatório
+// entre 1050 e 2000
+
+const numeroAleatorio = Math.floor(Math.random() * (1050 - 2000 + 1)) + 2000;
+
+
+// Retorne o maior número da lista abaixo
+const numeross = '4, 5, 20, 8, 9';
+const arrayNumeross = numeross.split(', ');
+
+
+const numeroMax = Math.max(...arrayNumeross);
+
+
+// Crie uma função para limpar os preços
+// e retornar os números com centavos arredondados
+// depois retorne a soma total
+const listaPrecos = ['R$ 59,99', ' R$ 100,222',
+  'R$ 230  ', 'r$  200'];
+
+function limparPreco(preco) {
+  preco = +preco.toUpperCase().replace('R$', '').trim().replace(',', '.');
+  preco = +preco.toFixed(2);
+  return preco;
+}
+
+let soma = 0;
+listaPrecos.forEach((preco) => {
+  soma += limparPreco(preco);
+})
+
+console.log(soma.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
+
+limparPreco(listaPrecos[1]);
+
+
+//-----------
+
+
+const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
+// Remova o primeiro valor de comidas e coloque em uma variável
+// Remova o último valor de comidas e coloque em uma variável
+// Adicione 'Arroz' ao final da array
+// Adicione 'Peixe' e 'Batata' ao início da array
+
+
+const primeiroValor = comidas.shift();
+const ultimoValor = comidas.pop();
+
+comidas.push('Arroz');
+
+comidas.unshift('Peixe')
+
+console.log(primeiroValor)
+console.log(ultimoValor)
+console.log(comidas)
+
+const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
+// Arrume os estudantes em ordem alfabética
+// Inverta a ordem dos estudantes
+// Verifique se Joana faz parte dos estudantes
+// Verifique se Juliana faz parte dos estudantes
+
+estudantes.sort();
+estudantes.reverse();
+
+console.log(estudantes);
+console.log(estudantes.includes('Joana'))
+console.log(estudantes.includes('Juliana'))
+
+
+
+let html2 = `<section>
+              <div>Sobre</div>
+              <div>Produtos</div>
+              <div>Contato</div>
+            </section>`
+// Substitua section por ul e div com li,
+// utilizando split e join
+
+html2 = html2.split('section').join('ul').split('div');
+console.log(html2)
+
+
+const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
+// Remova o último carro, mas antes de remover
+// salve a array original em outra variável
+const carrosCopia = carros.slice();
+
+carros.pop();
+
+
+
+//------------
+
+
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+
+const cursos = document.querySelectorAll('.curso');
+const arrayCursos = Array.from(cursos);
+
+const objetosCurso = arrayCursos.map((curso) => {
+  const titulo = curso.querySelector('h1').innerText;
+  const descricao = curso.querySelector('p').innerText;
+  const aulas = curso.querySelector('.aulas').innerText;
+  const horas = curso.querySelector('.horsas').innerText;
+  return {
+    titulo,
+    descricao,
+    aulas,
+    horas
+  }
+})
+
+console.log(objetosCurso);
+
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
+
+const maioresQue100 = numeros.filter(n => n > 100);
+
+console.log(maioresQue100)
+
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+
+const possuiBaixo = instrumentos.some((item) => {
+  return item === 'Baixo';
+})
+
+console.log(possuiBaixo)
+
+
+// *** Retorne o valor total das compras ***
+const compras = [
+  {
+    item: 'Banana',
+    preco: 'R$ 4,99'
+  },
+  {
+    item: 'Ovo',
+    preco: 'R$ 2,99'
+  },
+  {
+    item: 'Carne',
+    preco: 'R$ 25,49'
+  },
+  {
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
+  },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  },
+  {
+    item: 'Arroz',
+    preco: 'R$ 5,50'
+  }
+]
+
+
+const valorTotal = compras.reduce((acumulador, item) => {
+  const precoLimpo = +item.preco.replace('R$ ', '').replace(', ', '.');
+  return acumulador + precoLimpo;
+}, 0)
+
+console.log(valorTotal);
+
+
+//-------------
+
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteudo.
+function criarElemento(tag, classe, conteudo) {
+  const elemento = document.createElement(tag);
+  classe ? elemento.classList.add(classe) : null;
+  conteudo ? elemento.innerHTML = conteudo : null;
+}
+
+console.log(criarElemento('li', 'azul', 'Esse é o conteudo'));
+
+
+
+// Crie uma nova função utilizando a anterior como base
+// essa nova função deverá sempre criar h1 com a
+// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+
+const h1Titulo = criarElemento.bind(null, 'h1', 'titulo');
+
+const cursosJS = h1Titulo('Curso de JavaScript');
+const cursoOutro = h1Titulo('Curso de Outra Coisa');
+
+
+//---------
+
+
+// Crie uma função que verifique
+// corretamente o tipo de dado
+
+function verificarDado(dado) {
+  return Object.prototype.toString.call(dado);
+}
+
+console.log(verificarDado('String'));
+
+// Crie um objeto quadrado com
+// a propriedade lados e torne
+// ela imutável
+const quadrado = {};
+Object.defineProperties(quadrado, {
+  lados: {
+    value: 4,
+    enumerable: true,
+  }
+});
+
+console.log(quadrado);
+
+
+
+// Previna qualquer mudança
+// no objeto abaixo
+const configuracao = {
+  width: 800,
+  height: 600,
+  background: '#333'
+}
+
+Object.freeze(configuracao);
+
+// Liste o nome de todas
+// as propriedades do
+// protótipo de String e Array
+
+console.log(Object.getOwnPropertyNames(String.prototype));
+console.log(Object.getOwnPropertyNames(Array.prototype));
